@@ -4,7 +4,7 @@ set -u
 
 if [ "${ACME_ENABLED:=true}" = "true" ]; then
   # 使用acme获取/更新证书
-  ${ACME_HOME}/acme.sh ${ACME_PARAMS:-} --force --issue --cert-home ${CERT_HOME} -d ${ACME_DOMAIN} -d *.${ACME_DOMAIN} --dns dns_dp --keylength 2048 --standalone
+  ${ACME_HOME}/acme.sh ${ACME_PARAMS:-} --force --issue --cert-home ${CERT_HOME} -d ${ACME_DOMAIN} -d *.${ACME_DOMAIN} --dns dns_dp --server letsencrypt --keylength 2048 --standalone
 fi
 
 # 添加刷新url
