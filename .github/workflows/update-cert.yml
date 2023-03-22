@@ -1,8 +1,11 @@
 name: Update Cert
 
 on:
+  push:
+    branches:
+      - main # 只有在main分支push时才会触发
   schedule:
-    - cron: '0 10 1 * *'
+    - cron: '0 0 * */90 *' # 每隔90天自动执行
 
 jobs:
   build:
