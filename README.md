@@ -101,4 +101,4 @@ acme.sh --issue  -d "whuzfb.cn" -d "*.whuzfb.cn" --dns dns_dp
 >    # 使用ACME申请的SSL证书私钥的本地存放路径
 >    KEY_FILE = "${CERT_HOME}/${ACME_DOMAIN}_ecc/${ACME_DOMAIN}.key"
 >    ```
->
+> 2. CDN_DOMAIN为腾讯云上配置的CDN域名，不是通配符*.abc.com
