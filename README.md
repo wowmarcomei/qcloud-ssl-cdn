@@ -92,3 +92,13 @@ acme.sh --issue  -d "whuzfb.cn" -d "*.whuzfb.cn" --dns dns_dp
 `ecdn.get_ecdn_basic_info(client)`：获取所有ECDN（全球加速服务）的基本信息，返回列表  
 `ecdn.get_ecdn_detail_info(client)`：获取所有ECDN的详细信息，返回列表  
 `ecdn.update_ecdn_ssl(client, domain, cert_id)`：为指定域名的CDN的更换SSL证书  
+
+> 1. qcloud-ssl-cdn/docker/update.sh下面因为acme.sh使用申请证书使用的非RSA算法而是ecc算法，所以文件路径为`<domainname>_ecc`,所以要将CER_FILE 与KEY_FILE 修改一下：
+>
+>    ```yaml
+>    # 使用ACME申请的SSL完整证书的本地存放路径
+>    CER_FILE = "${CERT_HOME}/${ACME_DOMAIN}_ecc/fullchain.cer"
+>    # 使用ACME申请的SSL证书私钥的本地存放路径
+>    KEY_FILE = "${CERT_HOME}/${ACME_DOMAIN}_ecc/${ACME_DOMAIN}.key"
+>    ```
+>
